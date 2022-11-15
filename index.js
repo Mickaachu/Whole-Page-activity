@@ -11,20 +11,17 @@ pokedexSubmit.addEventListener('click', () => {
         pokedexOutput.innerHTML = `
         <h2 id='pokemon-name' >${data.name}</h1>
         <img src="${data.sprites.front_default}">
-        <p>Pokemon Type: ${data.types[0].type.name}</p>
+        <p>Type: ${data.types[0].type.name}</p>
         <div>
-            <h2>Status</h2>
+            <h3>Status:</h3>
             </br>
             <p>HP : ${data.stats[0].base_stat}</p>
             <p>Attack : ${data.stats[1].base_stat}</p>
             <p>Defense : ${data.stats[2].base_stat}</p>
             <p>Speed : ${data.stats[5].base_stat}</p>
         </div>
-        <p>Base experience: ${data.base_experience}</p>
-        <p>Height: ${data.height}</p>
-        <p>Weight: ${data.weight}</p>
         <br/>
-        <p>Abilities:</p>
+        <h3>Abilities:</h3>
         <ul>  
             ${
                 data.abilities.map(ability => {
@@ -32,14 +29,7 @@ pokedexSubmit.addEventListener('click', () => {
                 }).join('')
             }
         </ul>
-        <p>Moves:</p>
-        <ul>
-            ${
-                data.moves.map(move => {
-                    return `<li>${move.move.name}</li>`
-                }).join('')
-            }
-        </ul>
+        
 
         `
             
@@ -48,7 +38,7 @@ pokedexSubmit.addEventListener('click', () => {
     .catch(err => {
         pokedexOutput.innerHTML = `
             
-            <p>Invalid Pokemon, Please try again</p>
+            <p class='error'>Invalid Pokemon, Please try again</p>
         `
     });
    
